@@ -75,8 +75,20 @@ const Game = () => {
 	};
 
 	return (
-		<div>
-			Next player: {whosTurn}
+		<div className="game">
+			<div className="game-status">
+				{winner ? (
+					<div>
+						{winner === "X" || winner === "O" ? (
+							<div>{winner} Wins!</div>
+						) : winner === "Draw" ? (
+							<div>It's a Draw!</div>
+						) : null}
+					</div>
+				) : (
+					<div> Next player: {whosTurn}</div>
+				)}
+			</div>
 			<table>
 				<tbody>
 					<tr>
@@ -132,18 +144,11 @@ const Game = () => {
 					</tr>
 				</tbody>
 			</table>
-			<div className="gameOver">
+			<div className="game-over">
 				{winner ? (
-					<div>
-						{winner === "X" || winner === "O" ? (
-							<div>{winner} Wins!</div>
-						) : winner === "Draw" ? (
-							<div>It's a Draw!</div>
-						) : null}
-						<button className="reset" onClick={reset}>
-							Play again!
-						</button>
-					</div>
+					<button className="reset" onClick={reset}>
+						Play again!
+					</button>
 				) : null}
 			</div>
 		</div>
