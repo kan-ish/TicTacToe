@@ -1,7 +1,7 @@
 import { useState } from "react";
-import Cell from "./Cell";
+import Board from "./Board";
 
-const Game = () => {
+const TicTacToe = () => {
 	const [whosTurn, setWhosTurn] = useState("X");
 	const [cellContents, SetCellContents] = useState(Array(9).fill(""));
 	const [winner, setWinner] = useState("");
@@ -35,6 +35,7 @@ const Game = () => {
 		};
 
 		if (cells.every((cell) => cell !== "")) {
+			// if every cell is filled and no one won
 			setWinner("Draw");
 		}
 
@@ -58,7 +59,9 @@ const Game = () => {
 
 	const handleClick = (num) => {
 		if (!winner) {
+			// to freeze game when there is a winner or it's a draw
 			if (!cells[num]) {
+				// to check if the cell is not already filled
 				cells[num] = whosTurn;
 				SetCellContents(cells);
 				toggleTurn();
@@ -82,68 +85,14 @@ const Game = () => {
 						{winner === "X" || winner === "O" ? (
 							<div>{winner} Wins!</div>
 						) : winner === "Draw" ? (
-							<div>It's a Draw!</div>
+							<div>It&#39;s a Draw!</div>
 						) : null}
 					</div>
 				) : (
 					<div> Next player: {whosTurn}</div>
 				)}
 			</div>
-			<table>
-				<tbody>
-					<tr>
-						<Cell
-							num={0}
-							cellContents={cellContents}
-							handleClick={handleClick}
-						/>
-						<Cell
-							num={1}
-							cellContents={cellContents}
-							handleClick={handleClick}
-						/>
-						<Cell
-							num={2}
-							cellContents={cellContents}
-							handleClick={handleClick}
-						/>
-					</tr>
-					<tr>
-						<Cell
-							num={3}
-							cellContents={cellContents}
-							handleClick={handleClick}
-						/>
-						<Cell
-							num={4}
-							cellContents={cellContents}
-							handleClick={handleClick}
-						/>
-						<Cell
-							num={5}
-							cellContents={cellContents}
-							handleClick={handleClick}
-						/>
-					</tr>
-					<tr>
-						<Cell
-							num={6}
-							cellContents={cellContents}
-							handleClick={handleClick}
-						/>
-						<Cell
-							num={7}
-							cellContents={cellContents}
-							handleClick={handleClick}
-						/>
-						<Cell
-							num={8}
-							cellContents={cellContents}
-							handleClick={handleClick}
-						/>
-					</tr>
-				</tbody>
-			</table>
+			<Board cellContents={cellContents} handleClick={handleClick} />
 			<div className="game-over">
 				{winner ? (
 					<button className="reset" onClick={reset}>
@@ -155,4 +104,4 @@ const Game = () => {
 	);
 };
 
-export default Game;
+export default TicTacToe;
