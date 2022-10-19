@@ -10,7 +10,7 @@ const TicTacToe = () => {
 	// const themeContext = useContext(ThemeContext);
 	const [theme, setTheme] = useContext(ThemeContext);
 
-	// console.log(themeContext.lightTheme);
+	// console.log(themeContext.isLightTheme);
 
 	const cells = [...cellContents];
 
@@ -93,7 +93,6 @@ const TicTacToe = () => {
 
 	return (
 		<envelope className={theme}>
-			<button onClick={toggleTheme}>Toggle Theme</button>
 			<div className="game-status">
 				{winner ? (
 					<div>
@@ -114,6 +113,10 @@ const TicTacToe = () => {
 						Play again!
 					</button>
 				) : null}
+			</div>
+			<div className="darkmode-toggle" onClick={toggleTheme}>
+				<img src={darkmodeToggle} />
+				<togglehandle className={theme}></togglehandle>
 			</div>
 		</envelope>
 	);

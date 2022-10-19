@@ -6,6 +6,7 @@ body {
 
 .App {
 	text-align: center;
+	font-family: "Permanent Marker", cursive;
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -13,17 +14,6 @@ body {
 		animation: App-logo-spin infinite 20s linear;
 	}
 }
-
-/* .App-header {
-	background-color: #282c34;
-	min-height: 100vh;
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	justify-content: center;
-	font-size: calc(10px + 2vmin);
-	color: white;
-} */
 
 td.light {
 	border: 3px #7d1b1b solid;
@@ -36,6 +26,7 @@ td.dark {
 	width: 55px;
 	height: 50px;
 	margin: 0px;
+	color: #00ff00;
 }
 
 envelope.light {
@@ -71,12 +62,12 @@ envelope.dark {
 	border-radius: 0.3em;
 	transition: 0.1s;
 }
-.reset .light {
+.reset button.light {
 	border: 3px solid #000000;
 	background-color: #aeafb300;
 	color: #000000;
 }
-.reset .dark {
+.reset button.dark {
 	border: 3px solid #00ff00;
 	background-color: #282c34;
 	color: #00ff00;
@@ -100,4 +91,35 @@ envelope.dark {
 td {
 	font-family: "Permanent Marker", cursive;
 	font-size: larger;
+}
+
+.darkmode-toggle {
+	display: inline-block;
+	width: 50px;
+	height: 24.2px;
+	position: fixed;
+	top: 91vh;
+	left: 2.5vw;
+}
+
+.darkmode-toggle img {
+	width: 100%;
+}
+
+.darkmode-toggle togglehandle {
+	height: 20px;
+	width: 20px;
+	background-color: #e6185c;
+	border-radius: 50%;
+	display: inline-block;
+	position: absolute;
+	top: 2.15px;
+	transition: 0.3s;
+}
+
+.darkmode-toggle togglehandle.light {
+	left: 2px;
+}
+.darkmode-toggle togglehandle.dark {
+	left: 26px;
 }
