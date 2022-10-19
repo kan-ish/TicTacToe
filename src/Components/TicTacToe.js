@@ -1,12 +1,26 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
+import ThemeContext from "../Contexts/ThemeContext";
 import Board from "./Board";
+import darkmodeToggle from "../darkmode_toggle.png";
 
 const TicTacToe = () => {
 	const [whosTurn, setWhosTurn] = useState("X");
 	const [cellContents, SetCellContents] = useState(Array(9).fill(""));
 	const [winner, setWinner] = useState("");
+	// const themeContext = useContext(ThemeContext);
+	const [theme, setTheme] = useContext(ThemeContext);
+
+	// console.log(themeContext.lightTheme);
 
 	const cells = [...cellContents];
+
+	const toggleTheme = () => {
+		if (theme === "light") {
+			setTheme("dark");
+		} else {
+			setTheme("light");
+		}
+	};
 
 	const toggleTurn = () => {
 		if (whosTurn === "X") {
@@ -78,7 +92,8 @@ const TicTacToe = () => {
 	};
 
 	return (
-		<div className="game">
+		<envelope className={theme}>
+			<button onClick={toggleTheme}>Toggle Theme</button>
 			<div className="game-status">
 				{winner ? (
 					<div>
@@ -93,14 +108,14 @@ const TicTacToe = () => {
 				)}
 			</div>
 			<Board cellContents={cellContents} handleClick={handleClick} />
-			<div className="game-over">
+			<div className="reset">
 				{winner ? (
-					<button className="reset" onClick={reset}>
+					<button className={theme} onClick={reset}>
 						Play again!
 					</button>
 				) : null}
 			</div>
-		</div>
+		</envelope>
 	);
 };
 

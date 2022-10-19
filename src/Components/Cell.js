@@ -1,8 +1,13 @@
+import { useContext } from "react";
+import ThemeContext from "../Contexts/ThemeContext";
+
 const Cell = ({ num, cellContents, handleClick }) => {
+	const [theme] = useContext(ThemeContext);
+
 	const cells = [...cellContents];
 	return (
 		<td
-			className="cell"
+			className={theme}
 			onClick={() => {
 				handleClick(num);
 			}}
