@@ -29,7 +29,7 @@ td.dark {
 	color: #00ff00;
 }
 
-envelope.light {
+#envelope.light {
 	background-color: #d1d3d9;
 	min-height: 100vh;
 	display: flex;
@@ -39,7 +39,7 @@ envelope.light {
 	font-size: calc(10px + 2vmin);
 	color: rgb(3, 3, 3);
 }
-envelope.dark {
+#envelope.dark {
 	background-color: #282c34;
 	min-height: 100vh;
 	display: flex;
@@ -108,7 +108,7 @@ td {
 	left: 0px;
 }
 
-.darkmode-toggle togglehandle {
+.darkmode-toggle #togglehandle {
 	height: 20px;
 	width: 20px;
 	background-color: #e6185c;
@@ -119,9 +119,9 @@ td {
 	transition: 0.3s;
 }
 
-.darkmode-toggle togglehandle.light {
+.darkmode-toggle #togglehandle.light {
 	left: 2px;
 }
-.darkmode-toggle togglehandle.dark {
+.darkmode-toggle #togglehandle.dark {
 	left: 26px;
 }

@@ -37,7 +37,7 @@ const TicTacToe = () => {
 	};
 
 	return (
-		<envelope className={theme}>
+		<div id="envelope" className={theme}>
 			<GameStatus winner={winner} whosTurn={whosTurn} />
 			<Board cells={cells} handleClick={handleClick} />
 			<Reset
@@ -48,9 +48,9 @@ const TicTacToe = () => {
 			/>
 			<div className="darkmode-toggle" onClick={toggleTheme}>
 				<img src={darkmodeToggle} />
-				<togglehandle className={theme}></togglehandle>
+				<div id="togglehandle" className={theme}></div>
 			</div>
-		</envelope>
+		</div>
 	);
 };
 
