@@ -15,42 +15,43 @@ body {
 	}
 }
 
-td.light {
-	border: 3px #7d1b1b solid;
+.cell {
 	width: 55px;
 	height: 50px;
 	margin: 0px;
 }
-td.dark {
-	border: 2px rgb(204, 202, 202) solid;
-	width: 55px;
-	height: 50px;
-	margin: 0px;
+.cell.light {
+	border: 3px #7d1b1b solid;
+}
+.cell.dark {
+	border: 3px rgb(204, 202, 202) solid;
 	color: #00ff00;
 }
 
-#envelope.light {
-	background-color: #d1d3d9;
+#envelope {
 	min-height: 100vh;
 	display: flex;
-	flex-direction: column;
+	flex-direction: row;
 	align-items: center;
 	justify-content: center;
 	font-size: calc(10px + 2vmin);
+}
+#envelope.light {
+	background-color: #d1d3d9;
 	color: rgb(3, 3, 3);
 }
 #envelope.dark {
 	background-color: #282c34;
-	min-height: 100vh;
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	justify-content: center;
-	font-size: calc(10px + 2vmin);
 	color: white;
 }
 
-.reset button {
+#game,
+#scores {
+	padding: 0px 20px;
+}
+
+.reset-game,
+.reset-scores {
 	display: block;
 	width: 100%;
 	height: 30px;
@@ -62,34 +63,39 @@ td.dark {
 	border-radius: 0.3em;
 	transition: 0.1s;
 }
-.reset button.light {
+.reset-game.light,
+.reset-scores.light {
 	border: 3px solid #000000;
 	background-color: #aeafb300;
 	color: #000000;
 }
-.reset button.dark {
+.reset-game.dark,
+.reset-scores.dark {
 	border: 3px solid #00ff00;
 	background-color: #282c34;
 	color: #00ff00;
 }
 
-.reset .light:hover {
+.reset-game.light:hover,
+.reset-scores.light:hover {
 	box-shadow: 0 0 7px 0.1px #000000;
 }
-.reset .dark:hover {
+.reset-game.dark:hover,
+.reset-scores.dark:hover {
 	box-shadow: 0 0 10px 0.05px #00ff00;
 }
 
-.reset .light:active {
+.reset-game.light:active,
+.reset-scores.light:active {
 	box-shadow: 0 0px 3px 0.05px #000000 inset;
 }
-.reset .dark:active {
+.reset-game.dark:active,
+.reset-scores.dark:active {
 	box-shadow: 0 0px 10px 0.05px #00ff00 inset;
 }
 
 .game-status,
-td {
-	font-family: "Permanent Marker", cursive;
+.cell {
 	font-size: larger;
 }
 
@@ -124,4 +130,30 @@ td {
 }
 .darkmode-toggle #togglehandle.dark {
 	left: 26px;
+}
+
+.score-board {
+	font-size: larger;
+	display: block;
+	width: 100%;
+	table-layout: fixed;
+	/* border-collapse: collapse;
+	border: 3px solid purple; */
+}
+
+thead th:nth-child(1) {
+	width: 30%;
+}
+
+thead th:nth-child(2) {
+	width: 20%;
+}
+
+thead th:nth-child(3) {
+	width: 15%;
+}
+
+th,
+.score-board td {
+	padding: 0px, 5px;
 }

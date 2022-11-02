@@ -6,7 +6,7 @@ const Cell = ({ num, cells, handleClick }) => {
 
 	return (
 		<td
-			className={theme}
+			className={`cell ${theme}`}
 			onClick={() => {
 				handleClick(num);
 			}}

@@ -4,10 +4,10 @@ import ThemeContext from "../Contexts/ThemeContext";
 const Reset = ({ winner, reset, setWinner, setCellContents }) => {
 	const [theme] = useContext(ThemeContext);
 	return (
-		<div className="reset">
+		<div>
 			{winner ? (
 				<button
-					className={theme}
+					className={`reset-game ${theme}`}
 					onClick={() => {
 						reset(setWinner, setCellContents);
 					}}

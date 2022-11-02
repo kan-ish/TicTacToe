@@ -1,9 +1,9 @@
 import Cell from "./Cell";
 
-const Board = ({ cells, handleClick }) => {
+const GameBoard = ({ cells, handleClick }) => {
 	return (
 		<div>
-			<table>
+			<table className="game-board">
 				<tbody>
 					<tr>
 						<Cell num={0} cells={cells} handleClick={handleClick} />
@@ -26,4 +26,4 @@ const Board = ({ cells, handleClick }) => {
 	);
 };
 
-export default Board;
+export default GameBoard;

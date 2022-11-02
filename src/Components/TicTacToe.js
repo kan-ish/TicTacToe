@@ -1,7 +1,8 @@
 import { useContext, useState } from "react";
-import Board from "./Board";
+import GameBoard from "./GameBoard";
 import GameStatus from "./GameStatus";
-import Reset from "./Reset";
+import ResetGame from "./ResetGame";
+import ScoreBoard from "./ScoreBoard";
 import { winningLogic, toggleTurn, reset } from "../gameLogic/gameLogic";
 import ThemeContext from "../Contexts/ThemeContext";
 import darkmodeToggle from "../darkmode_toggle.png";
@@ -38,14 +39,19 @@ const TicTacToe = () => {
 
 	return (
 		<div id="envelope" className={theme}>
-			<GameStatus winner={winner} whosTurn={whosTurn} />
-			<Board cells={cells} handleClick={handleClick} />
-			<Reset
-				winner={winner}
-				reset={reset}
-				setWinner={setWinner}
-				setCellContents={setCellContents}
-			/>
+			<div id="game">
+				<GameStatus winner={winner} whosTurn={whosTurn} />
+				<GameBoard cells={cells} handleClick={handleClick} />
+				<ResetGame
+					winner={winner}
+					reset={reset}
+					setWinner={setWinner}
+					setCellContents={setCellContents}
+				/>
+			</div>
+			{/* <div id="scores">
+				<ScoreBoard winner={winner} />
+			</div> */}
 			<div className="darkmode-toggle" onClick={toggleTheme}>
 				<img src={darkmodeToggle} />
 				<div id="togglehandle" className={theme}></div>
