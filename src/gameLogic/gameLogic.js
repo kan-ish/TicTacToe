@@ -1,4 +1,6 @@
 export const winningLogic = (cells, setWinner) => {
+	let scores = JSON.parse(localStorage.getItem("scores"));
+
 	const combos = {
 		across: [
 			[0, 1, 2],
@@ -19,6 +21,8 @@ export const winningLogic = (cells, setWinner) => {
 	if (cells.every((cell) => cell !== "")) {
 		// if every cell is filled and no one won
 		setWinner("Draw");
+		scores.Draw += 1;
+		localStorage.setItem("scores", JSON.stringify(scores));
 	}
 
 	for (const key in combos) {
@@ -34,6 +38,12 @@ export const winningLogic = (cells, setWinner) => {
 				cells[combo[0]] === cells[combo[2]]
 			) {
 				setWinner(cells[combo[0]]);
+				if (cells[combo[0]] === "X") {
+					scores.X += 1;
+				} else if (cells[combo[0]] === "O") {
+					scores.O += 1;
+				}
+				localStorage.setItem("scores", JSON.stringify(scores));
 			}
 		});
 	}

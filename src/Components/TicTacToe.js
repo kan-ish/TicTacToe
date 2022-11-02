@@ -49,9 +49,14 @@ const TicTacToe = () => {
 					setCellContents={setCellContents}
 				/>
 			</div>
-			{/* <div id="scores">
-				<ScoreBoard winner={winner} />
-			</div> */}
+			<div id="scores">
+				<ScoreBoard
+					winner={winner}
+					reset={reset}
+					setWinner={setWinner}
+					setCellContents={setCellContents}
+				/>
+			</div>
 			<div className="darkmode-toggle" onClick={toggleTheme}>
 				<img src={darkmodeToggle} />
 				<div id="togglehandle" className={theme}></div>
