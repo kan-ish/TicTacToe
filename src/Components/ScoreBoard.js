@@ -1,4 +1,4 @@
-import { useEffect, useContext, useState } from "react";
+import { useContext } from "react";
 import ThemeContext from "../Contexts/ThemeContext";
 
 if (!localStorage.getItem("scores")) {
