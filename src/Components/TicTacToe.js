@@ -3,7 +3,7 @@ import GameBoard from "./GameBoard";
 import GameStatus from "./GameStatus";
 import ResetGame from "./ResetGame";
 import ScoreBoard from "./ScoreBoard";
-import { winningLogic, toggleTurn, reset } from "../gameLogic/gameLogic";
+import { winningLogic, toggleTurn, resetGame } from "../gameLogic/gameLogic";
 import ThemeContext from "../Contexts/ThemeContext";
 import darkmodeToggle from "../darkmode_toggle.png";
 
@@ -44,7 +44,7 @@ const TicTacToe = () => {
 				<GameBoard cells={cells} handleClick={handleClick} />
 				<ResetGame
 					winner={winner}
-					reset={reset}
+					resetGame={resetGame}
 					setWinner={setWinner}
 					setCellContents={setCellContents}
 				/>
@@ -52,7 +52,7 @@ const TicTacToe = () => {
 			<div id="scores">
 				<ScoreBoard
 					winner={winner}
-					reset={reset}
+					resetGame={resetGame}
 					setWinner={setWinner}
 					setCellContents={setCellContents}
 				/>

@@ -57,7 +57,7 @@ export const toggleTurn = (whosTurn, setWhosTurn) => {
 	}
 };
 
-export const reset = (setWinner, setCellContents) => {
+export const resetGame = (setWinner, setCellContents) => {
 	setWinner("");
 	setCellContents(Array(9).fill(""));
 	// setWhosTurn("X");

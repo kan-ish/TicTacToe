@@ -5,7 +5,7 @@ if (!localStorage.getItem("scores")) {
 	localStorage.setItem("scores", JSON.stringify({ X: 0, O: 0, Draw: 0 }));
 }
 
-const ScoreBoard = ({ reset, setWinner, setCellContents }) => {
+const ScoreBoard = ({ resetGame, setWinner, setCellContents }) => {
 	const [theme] = useContext(ThemeContext);
 
 	let scores = JSON.parse(localStorage.getItem("scores"));
@@ -18,7 +18,7 @@ const ScoreBoard = ({ reset, setWinner, setCellContents }) => {
 		scores.Draw = 0;
 		localStorage.setItem("scores", JSON.stringify(scores));
 
-		reset(setWinner, setCellContents);
+		resetGame(setWinner, setCellContents);
 	};
 
 	return (
